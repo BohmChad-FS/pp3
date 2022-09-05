@@ -20,19 +20,19 @@ This application is for a Spotify Web Api. It will allow you to log in and searc
 ---
 ## Getting Started
 
-You will need to clone this repo.
+- You will need to clone this repo.
 
 `git clone https://github.com/BohmChad-FS/pp3.git`
 
-You will then need to install your node modules.
+- You will then need to install your node modules.
 
 `npm install`
 
-You will need a `.env` file with PORT, mongoDBURL, clientID, and clientSecret. Fill these out with your desired port and information.
+- You will need a `.env` file with PORT, mongoDBURL, clientID, and clientSecret. Fill these out with your desired port and information.
 
-Make sure ports **3000** and **3001** are clear, as they will be the ports required for use.
+- Make sure ports **3000** and **3001** are clear, as they will be the ports required for use.
 
-To start the server
+- To start the server
 
 `cd api`
 
@@ -40,7 +40,7 @@ To start the server
 or
 `npm dev`
 
-To start React
+- To start React
 
 `cd reactjs`
 
