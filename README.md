@@ -49,6 +49,8 @@ or
 ---
 ## Links
 
+[Frontend Design](https://www.figma.com/file/pHeg09uqrjNmTz6wNDwm7V/Spotify-Search-API?node-id=0%3A1) created on Figma
+
 Links to project pages will be filled as they are created.
 
 [http://localhost:3000](http://localhost3000) Link to React frontend.
