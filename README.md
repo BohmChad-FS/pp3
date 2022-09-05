@@ -8,14 +8,14 @@ This application is for a Spotify Web Api. It will allow you to log in and searc
 ---
 ## Prerequisites
 
--NPM = 8.11.0
--Node JS = 16.15.1
--Express = 14.18.1
--dotenv = 16.0.2
--Mongoose = 6.5.4
--Cors = 2.8.5
--React = 18.2.0
--Chrome/Firefox/Safari/Edge = Latest 2 major versions
+- NPM = 8.11.0
+- Node JS = 16.15.1
+- Express = 14.18.1
+- dotenv = 16.0.2
+- Mongoose = 6.5.4
+- Cors = 2.8.5
+- React = 18.2.0
+- Chrome/Firefox/Safari/Edge = Latest 2 major versions
 
 ---
 ## Getting Started
