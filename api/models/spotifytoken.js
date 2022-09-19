@@ -15,4 +15,4 @@ const spotifyTokenSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Spotify Token', spotifyTokenSchema)
+module.exports = mongoose.model('Token', spotifyTokenSchema)

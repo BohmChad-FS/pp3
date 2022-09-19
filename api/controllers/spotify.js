@@ -31,20 +31,20 @@ const getToken = (code, grant_type, jwt) => {
 }
 
 exports.spotifyJWT = async (req, res, next) => {
-    req.jwt = await SpotifyToken.findOne({ where: {} })
-    if(!req.jwt && !req.query.code) { return next() }
-    if(!req.jwt && req.query.code) {
-        const SpotifyToken = new SpotifyToken({
+    req.token = await SpotifyToken.findOne({ where: {} })
+    if(!req.token && !req.query.code) { return next() }
+    if(!req.token && req.query.code) {
+        const newSpotifyToken = new SpotifyToken({
             access_token: form.access_token,
             token_type: form.token_type,
             expires_in: form.expires_in,
             refresh_token: form.refresh_token
         })
-        req.jwt = await getToken(req.query.code, 'authorization_code', SpotifyToken.save())
+        req.token = await getToken(req.query.code, 'authorization_code', newSpotifyToken.save())
     } else if(current > req.token.expires_in) {
-        req.jwt = await getToken(req.jwt.refresh_token, 'refresh_token', req.jwt)
+        req.token = await getToken(req.jwt.refresh_token, 'refresh_token', req.jwt)
     }
-    if(!req.jwt) {
+    if(!req.token) {
         res.json({ error: 'Could not request JWT'})
     }
     return next()
@@ -76,4 +76,23 @@ exports.login = async (req, res) => {
         }));
 }
 
-exports.search = async (req, res) => {}
+exports.search = async (req, res) => {
+    await fetch('https://api.spotify.com/v1/search',
+    {
+        params: {
+            type: 'artist, track',
+            q: req.query.q,
+            limit: 5
+        },
+        headers: {
+            'Authorization': `Bearer ${req.token.access_token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(({data}) => {
+        res.json(data)
+    })
+    .catch((error) => {
+        res.json(error)
+    })
+}
