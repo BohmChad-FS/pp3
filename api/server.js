@@ -8,7 +8,7 @@ app.use(cors())
 
 const PORT = process.env.PORT || 3001;
 
-// const spotifyRouter = require('./routes/spotify)
+const spotifyRouter = require('./routes/spotify')
 
 const mongoDBURL = process.env.mongoDBURL;
 
@@ -18,7 +18,7 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log("Database Connection Established"))
 
 app.use(express.json())
-// app.use('/spotify/v0', spotifyRouter)
+app.use('/spotify/v0', spotifyRouter)
 
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`)
